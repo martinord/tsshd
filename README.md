@@ -9,6 +9,7 @@ Twisted is an event-driven framework for Python. It uses a `reactor` event loop 
 * twisted
 * pyopenssl
 * crypto
+* zope
 
 
 ## Licence
