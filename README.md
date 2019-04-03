@@ -5,6 +5,19 @@ An implementation of a SSH server using the [Twisted Framework](https://twistedm
 Twisted is an event-driven framework for Python. It uses a `reactor` event loop as the main part, waiting for events to occur.
 
 
+## Usage
+
+**Init the server**
+```bash
+python tsshd.py
+```
+<br>
+
+**Connecting to the server**
+```bash
+ssh admin@localhost -p 2222
+```
+
 ## Packages used
 * twisted
 * pyopenssl
