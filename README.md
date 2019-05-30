@@ -1,15 +1,15 @@
 # Twisted SSH Server
 ## Intro
-An implementation of a SSH server using the [Twisted Framework](https://twistedmatrix.com/trac/) for network application development.
+An implementation of a SSH server using the [Twisted Framework](https://twistedmatrix.com/trac/) for network application development. In this version, it is used the UNIX database for authentication.
 
-Twisted is an event-driven framework for Python. It uses a `reactor` event loop as the main part, waiting for events to occur.
+Twisted is an event-driven framework for Python using callback-based programming. It uses a `reactor` event loop as the main part, waiting for events to occur.
 
 
 ## Usage
 
 **Init the server**
 ```bash
-python tsshd.py
+sudo python tsshd.py
 ```
 <br>
 
@@ -17,6 +17,12 @@ python tsshd.py
 ```bash
 ssh admin@localhost -p 2222
 ```
+<br>
+
+**Commands available**
+* echo
+* clear
+* quit
 
 ## Packages used
 * twisted

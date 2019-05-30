@@ -2,10 +2,12 @@ from twisted.cred import portal, checkers, credentials
 from twisted.conch import error, avatar, recvline, interfaces as conchinterfaces
 from twisted.conch.ssh import factory, userauth, connection, keys, session, common
 from twisted.conch.insults import insults
+from twisted.conch import checkers
 from twisted.internet import reactor
 from zope.interface import implements
 from Crypto.PublicKey import RSA
 import os
+import dbauth
 
 ## SHELL implementation
 # Subclass of HistoricRecvLine to build command-line shells
@@ -119,11 +121,12 @@ def getRSAKeys():
 # MAIN
 if __name__ == "__main__":
     sshFactory = factory.SSHFactory()
-    sshFactory.portal = portal.Portal(SSHRealm())
-    # Static dictionary of users
-    users = {'admin' : 'sshAdminPsswd', 'guest' : 'mypassword'}
+    sshFactory.portal = portal.Portal(
+        SSHRealm()
+    )
+
     sshFactory.portal.registerChecker(
-        checkers.InMemoryUsernamePasswordDatabaseDontUse(**users) # Using for dev purposes
+        checkers.UNIXPasswordDatabase()
     )
 
     # Set SSH key pair
